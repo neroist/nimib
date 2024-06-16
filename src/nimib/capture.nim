@@ -12,6 +12,9 @@ template captureStdout*(ident: untyped, body: untyped) =
     let (tmpFile, _) = createTempFile("tmp", "")
     let tmpFileFd: FileHandle = tmpFile.getFileHandle() 
     
+    # needs to be present when stdout isn't being written to by `newNbBlock` (-d:nimibNoLog)
+    stdout.flushFile()
+    
     # writing to stdoutFileno now writes to tmpFile
     tmpFileFd.duplicateTo(stdoutFileno)
     
