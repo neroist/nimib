@@ -235,8 +235,10 @@ template nbJsShowSource*(message: string = "") {.deprecated: "Use nbCodeDisplay 
   if message.len > 0:
     nb.blk.context["js_show_nim_source_message"] = message
 
+{.push warning[Deprecated]: off.}
 template nbCodeToJsShowSource*(message: string = "") {.deprecated: "Use nbCodeDisplay instead".} =
   nbJsShowSource(message)
+{.pop.}
 
 template nbCodeDisplay*(tmplCall: untyped, body: untyped) =
   ## display codes used in a template (e.g. nbJsFromCode) after the template call

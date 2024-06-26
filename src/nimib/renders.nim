@@ -1,4 +1,4 @@
-import std / [strutils, tables, sugar, os, strformat, sequtils]
+import std / [strutils, tables, sugar, sequtils]
 import ./types, ./jsutils, ./logging, markdown, mustache
 
 import highlight
